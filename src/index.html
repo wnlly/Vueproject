@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div id="app">
+    <h1>
+
+    <div>{{reverseMessage}}</div>
+    </h1>
+    <div>{{firstName}}</div>
+
+    <input type="text" v-model="id" placeholder="zhanweifu">
+    <div>{{id}}</div>
+  </div>
+
+  <script>
+    Vue.component('tudo', {
+
+        props:['todo'],
+        template: '<div>{{todo.text}}</div>'
+      }
+
+    )
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        id:"",
+       message:"hello",
+       firstName:"Bob",
+       lastName:"Sad",
+       fullName:"Bob Sad"
+      },
+      computed: {
+        reverseMessage(){
+          return this.message.split("").reverse().join("")
+        }
+      },
+      watch: {
+        firstName:function(val){
+          this.fullName = val +''+ this.lastName
+        },
+        lastName:function(val){
+          this.lastName = this.firstName+'' +val
+        }
+      }
+    });
+
+    console.log(vm.reverseMessage)
+    var add = "timeout";
+    console.log(add.reverseMessage)
+  </script>
+
+
+
+</body>
+
+</html>

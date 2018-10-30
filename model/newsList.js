@@ -14,6 +14,15 @@
         })
     }
 
-   
+    NewsList.getnewslist = function (callback){
+      db.query('select * from newsList',function(error,data){
+        if(error){
+          return callback(error)
+        }
+        callback(error,data)
+      })
+    }
+
+
 
     module.exports=NewsList

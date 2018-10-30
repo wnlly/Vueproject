@@ -89,6 +89,8 @@
     height: 24px;
     padding-top: 0;
     padding-bottom: 0;
+
+  
 }
 
 .mui-bar-tab .mui-tab-item-llb .mui-icon~.mui-tab-label {
