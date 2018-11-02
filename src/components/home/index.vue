@@ -74,6 +74,18 @@ export default {
         })
         .catch(function(error) {});
     }
+  },methods:{
+    getLunbo:function(){
+      this.$ajax.get('http://localhost:3000/api/getLunbo')
+      .then(function (response) {
+
+        this.lunbotu=response;
+      })
+      .catch(function (error) {
+      })
+    }
+  },mounted(){
+    this.getLunbo()
   }
 };
 </script>

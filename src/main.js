@@ -23,6 +23,8 @@ import 'mint-ui/lib/style.css'
 
 import '../lib/mui/js/mui.js'
 
+import axios from 'axios'
+Vue.prototype.$ajax = axios
 
 
 import axios from 'axios'
