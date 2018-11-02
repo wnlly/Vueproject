@@ -13,7 +13,7 @@
 							<p class='mui-ellipsis'>
                 <span> 发表时间：{{item.add_time | dateFormat}}</span>
 
-                <span>点击次数{{item.click}}</span>
+                <span>点击次数&nbsp;{{item.click}}</span>
               </p>
 						</div>
 					</router-link>
@@ -36,7 +36,7 @@ export default {
   },methods:{
     getNewsList(){
       var that = this;
-      this.$ajax.get('/getnewslist').then(function(result){
+      this.$ajax.get('api/getnewslist').then(function(result){
 
        if(result.data.stattus ==0){
          Toast('请求数据失败')

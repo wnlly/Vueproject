@@ -4,32 +4,56 @@ const router = express.Router();
 
 const NewsList = require("../model/newsList.js");
 
-router.get("/getLunbo", function(req, res) {
+router.get("/getLunbo", function (req, res) {
 
-    NewsList.getLunbo(function(error, data) {
+  NewsList.getLunbo(function (error, data) {
     if (error) {
-     return  res.send({ status: 0 });
+      return res.send({
+        status: 0
+      });
     }
     var result = data;
 
-    res.send([{ status: 1 }, { message: result }]);
+    res.send([{
+      status: 1
+    }, {
+      message: result
+    }]);
   });
 });
 
 
-router.get("/getnewslist",function(req,res){
-    NewsList.getnewslist(function(error,data){
-      if(error){
-        return res.send({status:0})
-      }
+router.get("/getnewslist", function (req, res) {
+  NewsList.getnewslist(function (error, data) {
+    if (error) {
+      return res.send({
+        status: 0
+      })
+    }
+    var body = {
+      stattus: 1,
+      message: data
+    };
 
-      var body  = {
-        stattus:1,
-        message:data
-      };
+    res.send(body)
+  })
+})
 
-      res.send(body)
-    })
+router.get('/getNewsListDetail',function(req,res){
+
+  console.log(req.query.id)
+  NewsList.getnewslistDetail(req.query.id,function(error,data){
+    if (error) {
+      return res.send({
+        status: 0
+      })
+    }
+    var body = {
+      stattus: 1,
+      message: data
+    }
+     res.send(body)
+  })
 })
 
 module.exports = router;

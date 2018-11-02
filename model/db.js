@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+﻿const mysql = require("mysql");
 
 const pool = mysql.createPool({
   host: "localhost",
@@ -15,12 +15,8 @@ exports.query = function() {
 
   if (args.length === 2 && typeof args[1] === "function") {
     callback = args[1];
-  } else if (
-    args.length === 3 &&
-    Array.isArray(params) &&
-    typeof args[1] === "function"
-  ) {
-      params=args[1];
+  } else if (args.length === 3 && Array.isArray(args[1]) &&typeof args[2] === "function") {
+    params = args[1];
       callback=args[2];
   }else{
       return new Error('参数个数不匹配')

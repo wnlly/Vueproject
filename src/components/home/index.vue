@@ -67,13 +67,25 @@ export default {
     getLunbo() {
       var that = this;
       this.$ajax
-        .get("/getLunbo")
+        .get("api/getLunbo")
         .then(function(result) {
           console.log(result.data[1].message);
           that.lunbotuList = result.data[1].message;
         })
         .catch(function(error) {});
     }
+  },methods:{
+    getLunbo:function(){
+      this.$ajax.get('api/getLunbo')
+      .then(function (response) {
+
+        this.lunbotu=response;
+      })
+      .catch(function (error) {
+      })
+    }
+  },mounted(){
+    this.getLunbo()
   }
 };
 </script>

@@ -23,14 +23,16 @@ import 'mint-ui/lib/style.css'
 
 import '../lib/mui/js/mui.js'
 
-
-
 import axios from 'axios'
+Vue.prototype.$ajax = axios
+
+
+
 import {Swipe, SwipeItem} from 'mint-ui'
   Vue.component(Swipe.name,Swipe)
   Vue.component(SwipeItem.name,Swipe)
 Vue.prototype.$ajax = axios
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = '/'
 
 
 /* eslint-disable no-new */

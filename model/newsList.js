@@ -1,8 +1,11 @@
     const db = require('./db.js')
 
-    function NewsList(){
-
+    function NewsList(News){
+      this.id = News.id
     }
+
+
+
 
     NewsList.getLunbo = function(callback){
         db.query('select * from lunbo',function(error,data){
@@ -23,6 +26,15 @@
       })
     }
 
+    NewsList.getnewslistDetail = function(id,callback){
+      db.query('select * from newslistdetail where id = ?',[id],function(error,data){
+        if (error) {
+          return callback(error);
+        }
+        var result=data[0];
+        callback(error, result);
+      })
+    }
 
 
     module.exports=NewsList
